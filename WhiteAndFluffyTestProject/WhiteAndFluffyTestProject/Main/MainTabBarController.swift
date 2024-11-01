@@ -20,18 +20,21 @@ class MainTabBarController: UITabBarController {
 //MARK: - private methods
 private extension MainTabBarController {
     func addViewControllerToTabBar() {
-        viewControllers = [generateVC(viewController: RandomPicturesViewController.self,
-                                      title: "Pictures", image: UIImage(systemName: "photo")),
-                           generateVC(viewController: FavoritePicturesViewController.self,
-                                      title: "Favorite", image: UIImage(systemName: "heart"))
+        viewControllers = [
+            generateNavController(for: RandomPicturesViewController(),
+                                  title: "Pictures",
+                                  image: UIImage(systemName: "photo")),
+            generateNavController(for: FavoritePicturesViewController(),
+                                  title: "Favorite",
+                                  image: UIImage(systemName: "heart"))
         ]
     }
     
-    func generateVC(viewController: UIViewController.Type, title: String, image: UIImage?) -> UIViewController {
-        let vc = viewController.init()
-        vc.tabBarItem.title = title
-        vc.tabBarItem.image = image
-        return vc
+    func generateNavController(for rootViewController: UIViewController, title: String, image: UIImage?) -> UINavigationController {
+        let navController = UINavigationController(rootViewController: rootViewController)
+        navController.tabBarItem.title = title
+        navController.tabBarItem.image = image
+        return navController
     }
     
     func setupTabBar() {

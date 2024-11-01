@@ -20,14 +20,7 @@ class FavoritePicturesTableCell: UITableViewCell {
         return imageView
     }()
     
-    private lazy var label: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
-        label.text = "Author name"
-        
-        return label
-    }()
+    private lazy var label = UILabel(text: "Author name", lines: 0, font: .systemFont(ofSize: 16, weight: .medium), alignment: .left)
     
     //MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
