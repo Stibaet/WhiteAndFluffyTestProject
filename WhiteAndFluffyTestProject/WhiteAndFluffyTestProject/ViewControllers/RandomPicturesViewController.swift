@@ -28,10 +28,14 @@ class RandomPicturesViewController: UIViewController {
         return searchBar
     }()
     
+    //MARK: - properties
+    private var dataSourse: [Model] = []
+    
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        getPictures()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +49,7 @@ class RandomPicturesViewController: UIViewController {
     }
 }
 
-//MARK: - UI methods
+//MARK: - private methods
 private extension RandomPicturesViewController {
     func configureUI() {
         view.backgroundColor = .yellow
@@ -65,16 +69,42 @@ private extension RandomPicturesViewController {
             picturesCollectionVIew.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    func getPictures() {
+        NetworkManager.shared.getPictures(completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+                case .success(let pictures):
+                    DispatchQueue.main.async {
+                        self.dataSourse = pictures
+                        self.picturesCollectionVIew.reloadData()
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(
+                            title: "Ошика",
+                            message: "Что-то пошло не так. Проверьте соединение с интернетом",
+                            preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "ОК", style: .default))
+                        self.present(alert, animated: true)
+                    }
+                    print("Error while getting pictures: \(error.localizedDescription)")
+            }
+
+        })
+    }
 }
 
 //MARK: - UICollectionViewDataSourse
 extension RandomPicturesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        dataSourse.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PicturesCollectionViewCell.reuseID, for: indexPath) as? PicturesCollectionViewCell else { return UICollectionViewCell() }
+        let model = dataSourse[indexPath.row]
+        cell.configureWith(model: model)
         return cell
     }
 }

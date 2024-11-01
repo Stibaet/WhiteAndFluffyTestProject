@@ -48,9 +48,7 @@ private extension FavoritePicturesViewController {
             tableVIew.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             tableVIew.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             tableVIew.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            tableVIew.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-            
-            
+            tableVIew.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor) 
         ])
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PicturesCollectionViewCell: UICollectionViewCell {
     
@@ -19,6 +20,7 @@ class PicturesCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    //MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -27,13 +29,40 @@ class PicturesCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - override
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+        request?.cancel()
+    }
+    
+    //MARK: - properties
+    private var request: DataRequest?
+    
+    //MARK: - public methods
+    func configureWith(model: Model) {
+        guard let imageUrlString = model.urls["small"], let imageURL = URL(string: imageUrlString) else { return }
+        
+        request = AF.request(imageURL).responseData(completionHandler: { [weak self] response in
+            guard let self = self else { return }
+            switch response.result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.imageView.image = UIImage(data: data)
+                    }
+                case .failure(let error):
+                    print("load image failure: \(error.localizedDescription)")
+            }
+            
+        })
+    }
 }
 
 //MARK: - UI methods
 private extension PicturesCollectionViewCell {
     func configureUI() {
         addSubview(imageView)
-        backgroundColor = .red
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor),
