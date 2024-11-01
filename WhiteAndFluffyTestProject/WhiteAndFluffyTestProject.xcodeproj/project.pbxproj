@@ -3,50 +3,129 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BACDA0512CD4E64F0091D288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BACDA0492CD4E64F0091D288 /* Assets.xcassets */; };
+		BACDA0532CD4E64F0091D288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACDA04C2CD4E64F0091D288 /* LaunchScreen.storyboard */; };
+		BACDA0542CD4E64F0091D288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACDA04E2CD4E64F0091D288 /* Main.storyboard */; };
+		BACDA0552CD4E64F0091D288 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDA03C2CD4E64F0091D288 /* UILabel + Extension.swift */; };
+		BACDA0562CD4E64F0091D288 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDA03D2CD4E64F0091D288 /* UIStackView + Extension.swift */; };
+		BACDA0572CD4E64F0091D288 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDA03F2CD4E64F0091D288 /* MainTabBarController.swift */; };
+		BACDA0582CD4E64F0091D288 /* DetailPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDA0412CD4E64F0091D288 /* DetailPicturesViewController.swift */; };
+		BACDA0592CD4E64F0091D288 /* FavoritePicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDA0422CD4E64F0091D288 /* FavoritePicturesViewController.swift */; };
+		BACDA05A2CD4E64F0091D288 /* RandomPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDA0432CD4E64F0091D288 /* RandomPicturesViewController.swift */; };
+		BACDA05B2CD4E64F0091D288 /* FavoritePicturesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDA0452CD4E64F0091D288 /* FavoritePicturesTableCell.swift */; };
+		BACDA05C2CD4E64F0091D288 /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDA0462CD4E64F0091D288 /* PicturesCollectionViewCell.swift */; };
+		BACDA05D2CD4E64F0091D288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDA0482CD4E64F0091D288 /* AppDelegate.swift */; };
+		BACDA05E2CD4E64F0091D288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDA04F2CD4E64F0091D288 /* SceneDelegate.swift */; };
+		EF59D46625CED5562E053E12 /* Pods_WhiteAndFluffyTestProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202E6255B465F01E0E74A5FC /* Pods_WhiteAndFluffyTestProject.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		0D9D4DA3C575D3D928CEAD58 /* Pods-WhiteAndFluffyTestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteAndFluffyTestProject.release.xcconfig"; path = "Target Support Files/Pods-WhiteAndFluffyTestProject/Pods-WhiteAndFluffyTestProject.release.xcconfig"; sourceTree = "<group>"; };
+		202E6255B465F01E0E74A5FC /* Pods_WhiteAndFluffyTestProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhiteAndFluffyTestProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		773E0BB9345831CFCC28C77F /* Pods-WhiteAndFluffyTestProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteAndFluffyTestProject.debug.xcconfig"; path = "Target Support Files/Pods-WhiteAndFluffyTestProject/Pods-WhiteAndFluffyTestProject.debug.xcconfig"; sourceTree = "<group>"; };
+		BACDA03C2CD4E64F0091D288 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		BACDA03D2CD4E64F0091D288 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
+		BACDA03F2CD4E64F0091D288 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		BACDA0412CD4E64F0091D288 /* DetailPicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPicturesViewController.swift; sourceTree = "<group>"; };
+		BACDA0422CD4E64F0091D288 /* FavoritePicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePicturesViewController.swift; sourceTree = "<group>"; };
+		BACDA0432CD4E64F0091D288 /* RandomPicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPicturesViewController.swift; sourceTree = "<group>"; };
+		BACDA0452CD4E64F0091D288 /* FavoritePicturesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePicturesTableCell.swift; sourceTree = "<group>"; };
+		BACDA0462CD4E64F0091D288 /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
+		BACDA0482CD4E64F0091D288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BACDA0492CD4E64F0091D288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BACDA04A2CD4E64F0091D288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BACDA04B2CD4E64F0091D288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BACDA04D2CD4E64F0091D288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BACDA04F2CD4E64F0091D288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BAFF4A682CD46EA500EC91CB /* WhiteAndFluffyTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiteAndFluffyTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		BAFF4A7A2CD46EA700EC91CB /* Exceptions for "WhiteAndFluffyTestProject" folder in "WhiteAndFluffyTestProject" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = BAFF4A672CD46EA500EC91CB /* WhiteAndFluffyTestProject */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		BAFF4A6A2CD46EA500EC91CB /* WhiteAndFluffyTestProject */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				BAFF4A7A2CD46EA700EC91CB /* Exceptions for "WhiteAndFluffyTestProject" folder in "WhiteAndFluffyTestProject" target */,
-			);
-			path = WhiteAndFluffyTestProject;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		BAFF4A652CD46EA500EC91CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF59D46625CED5562E053E12 /* Pods_WhiteAndFluffyTestProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B637DB7FD00EB124BA1E4A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				773E0BB9345831CFCC28C77F /* Pods-WhiteAndFluffyTestProject.debug.xcconfig */,
+				0D9D4DA3C575D3D928CEAD58 /* Pods-WhiteAndFluffyTestProject.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BACDA03E2CD4E64F0091D288 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BACDA03C2CD4E64F0091D288 /* UILabel + Extension.swift */,
+				BACDA03D2CD4E64F0091D288 /* UIStackView + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BACDA0402CD4E64F0091D288 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BACDA03F2CD4E64F0091D288 /* MainTabBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BACDA0442CD4E64F0091D288 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BACDA0412CD4E64F0091D288 /* DetailPicturesViewController.swift */,
+				BACDA0422CD4E64F0091D288 /* FavoritePicturesViewController.swift */,
+				BACDA0432CD4E64F0091D288 /* RandomPicturesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BACDA0472CD4E64F0091D288 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BACDA0452CD4E64F0091D288 /* FavoritePicturesTableCell.swift */,
+				BACDA0462CD4E64F0091D288 /* PicturesCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BACDA0502CD4E64F0091D288 /* WhiteAndFluffyTestProject */ = {
+			isa = PBXGroup;
+			children = (
+				BACDA03E2CD4E64F0091D288 /* Extensions */,
+				BACDA0402CD4E64F0091D288 /* Main */,
+				BACDA0442CD4E64F0091D288 /* ViewControllers */,
+				BACDA0472CD4E64F0091D288 /* Views */,
+				BACDA0482CD4E64F0091D288 /* AppDelegate.swift */,
+				BACDA0492CD4E64F0091D288 /* Assets.xcassets */,
+				BACDA04A2CD4E64F0091D288 /* Info.plist */,
+				BACDA04C2CD4E64F0091D288 /* LaunchScreen.storyboard */,
+				BACDA04E2CD4E64F0091D288 /* Main.storyboard */,
+				BACDA04F2CD4E64F0091D288 /* SceneDelegate.swift */,
+			);
+			path = WhiteAndFluffyTestProject;
+			sourceTree = "<group>";
+		};
 		BAFF4A5F2CD46EA500EC91CB = {
 			isa = PBXGroup;
 			children = (
-				BAFF4A6A2CD46EA500EC91CB /* WhiteAndFluffyTestProject */,
+				BACDA0502CD4E64F0091D288 /* WhiteAndFluffyTestProject */,
 				BAFF4A692CD46EA500EC91CB /* Products */,
+				8B637DB7FD00EB124BA1E4A2 /* Pods */,
+				D061A5EE0801D0720980B724 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +137,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D061A5EE0801D0720980B724 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				202E6255B465F01E0E74A5FC /* Pods_WhiteAndFluffyTestProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,20 +152,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAFF4A7B2CD46EA700EC91CB /* Build configuration list for PBXNativeTarget "WhiteAndFluffyTestProject" */;
 			buildPhases = (
+				8C2731288C8244BA6B70FCCD /* [CP] Check Pods Manifest.lock */,
 				BAFF4A642CD46EA500EC91CB /* Sources */,
 				BAFF4A652CD46EA500EC91CB /* Frameworks */,
 				BAFF4A662CD46EA500EC91CB /* Resources */,
+				2060E71FD2F2B6F971A46604 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				BAFF4A6A2CD46EA500EC91CB /* WhiteAndFluffyTestProject */,
-			);
 			name = WhiteAndFluffyTestProject;
-			packageProductDependencies = (
-			);
 			productName = WhiteAndFluffyTestProject;
 			productReference = BAFF4A682CD46EA500EC91CB /* WhiteAndFluffyTestProject.app */;
 			productType = "com.apple.product-type.application";
@@ -106,8 +190,6 @@
 				Base,
 			);
 			mainGroup = BAFF4A5F2CD46EA500EC91CB;
-			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = BAFF4A692CD46EA500EC91CB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -122,24 +204,99 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BACDA0512CD4E64F0091D288 /* Assets.xcassets in Resources */,
+				BACDA0532CD4E64F0091D288 /* LaunchScreen.storyboard in Resources */,
+				BACDA0542CD4E64F0091D288 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2060E71FD2F2B6F971A46604 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhiteAndFluffyTestProject/Pods-WhiteAndFluffyTestProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhiteAndFluffyTestProject/Pods-WhiteAndFluffyTestProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhiteAndFluffyTestProject/Pods-WhiteAndFluffyTestProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C2731288C8244BA6B70FCCD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WhiteAndFluffyTestProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BAFF4A642CD46EA500EC91CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BACDA0552CD4E64F0091D288 /* UILabel + Extension.swift in Sources */,
+				BACDA0562CD4E64F0091D288 /* UIStackView + Extension.swift in Sources */,
+				BACDA0572CD4E64F0091D288 /* MainTabBarController.swift in Sources */,
+				BACDA0582CD4E64F0091D288 /* DetailPicturesViewController.swift in Sources */,
+				BACDA0592CD4E64F0091D288 /* FavoritePicturesViewController.swift in Sources */,
+				BACDA05A2CD4E64F0091D288 /* RandomPicturesViewController.swift in Sources */,
+				BACDA05B2CD4E64F0091D288 /* FavoritePicturesTableCell.swift in Sources */,
+				BACDA05C2CD4E64F0091D288 /* PicturesCollectionViewCell.swift in Sources */,
+				BACDA05D2CD4E64F0091D288 /* AppDelegate.swift in Sources */,
+				BACDA05E2CD4E64F0091D288 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		BACDA04C2CD4E64F0091D288 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BACDA04B2CD4E64F0091D288 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BACDA04E2CD4E64F0091D288 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BACDA04D2CD4E64F0091D288 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		BAFF4A7C2CD46EA700EC91CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 773E0BB9345831CFCC28C77F /* Pods-WhiteAndFluffyTestProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -166,6 +323,7 @@
 		};
 		BAFF4A7D2CD46EA700EC91CB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D9D4DA3C575D3D928CEAD58 /* Pods-WhiteAndFluffyTestProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
