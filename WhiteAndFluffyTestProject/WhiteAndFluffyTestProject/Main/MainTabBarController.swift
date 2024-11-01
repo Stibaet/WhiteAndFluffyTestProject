@@ -9,7 +9,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
     
-    //MARK: - override
+    //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addViewControllerToTabBar()
@@ -20,9 +20,9 @@ class MainTabBarController: UITabBarController {
 //MARK: - private methods
 private extension MainTabBarController {
     func addViewControllerToTabBar() {
-        viewControllers = [generateVC(viewController: RandomPicturesVC.self,
+        viewControllers = [generateVC(viewController: RandomPicturesViewController.self,
                                       title: "Pictures", image: UIImage(systemName: "photo")),
-                           generateVC(viewController: FavoritePicturesVC.self,
+                           generateVC(viewController: FavoritePicturesViewController.self,
                                       title: "Favorite", image: UIImage(systemName: "heart"))
         ]
     }
