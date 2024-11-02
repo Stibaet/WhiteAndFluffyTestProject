@@ -112,9 +112,13 @@ extension RandomPicturesViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 extension RandomPicturesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = DetailPicturesViewController()
-        navigationController?.pushViewController(vc, animated: true)
-
+        let model = dataSourse[indexPath.item]
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? PicturesCollectionViewCell, let image = cell.getImageFromImageView() {
+            let vc = DetailPicturesViewController(model: model)
+            vc.configureWith(image: image)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

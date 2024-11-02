@@ -41,6 +41,10 @@ class PicturesCollectionViewCell: UICollectionViewCell {
     private var request: DataRequest?
     
     //MARK: - public methods
+    func getImageFromImageView() -> UIImage? {
+        imageView.image
+    }
+    
     func configureWith(model: Model) {
         guard let imageUrlString = model.urls["small"], let imageURL = URL(string: imageUrlString) else { return }
         
@@ -48,9 +52,7 @@ class PicturesCollectionViewCell: UICollectionViewCell {
             guard let self = self else { return }
             switch response.result {
                 case .success(let data):
-                    DispatchQueue.main.async {
-                        self.imageView.image = UIImage(data: data)
-                    }
+                    self.imageView.image = UIImage(data: data)
                 case .failure(let error):
                     print("load image failure: \(error.localizedDescription)")
             }

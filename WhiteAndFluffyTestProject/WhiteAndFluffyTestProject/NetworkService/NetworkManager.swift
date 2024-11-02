@@ -11,7 +11,7 @@ class NetworkManager {
     static let shared = NetworkManager()
     
     func getPictures(completion: @escaping (Result<[Model], NetworkErrors>) -> Void) {
-        guard let url = URL(string: "https://api.unsplash.com/photos/random?count=10&client_id=\(Constants.apiKey)") else {
+        guard let url = URL(string: "https://api.unsplash.com/photos/random?count=20&client_id=\(Constants.apiKey)") else {
             completion(.failure(.invalidURL))
             print("invalid URL")
             return
