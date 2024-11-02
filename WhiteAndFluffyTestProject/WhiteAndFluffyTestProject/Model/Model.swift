@@ -20,6 +20,14 @@ struct Model: Codable {
     let location: Location?
     let downloads: Int?
     
+    enum CodingKeys: String, CodingKey {
+        case id
+        case urls
+        case user
+        case createdAt = "created_at"
+        case location
+        case downloads
+    }
     
     struct User: Codable {
         let name: String
@@ -28,4 +36,35 @@ struct Model: Codable {
     struct Location: Codable {
         let name: String?
     }
+    
 }
+
+struct SearchResults: Codable {
+    let total: Int
+    let results: [Results]
+
+    enum CodingKeys: String, CodingKey {
+        case total
+        case results
+    }
+    
+    struct Results: Codable {
+        let id: String
+        let width: Int
+        let height: Int
+        let user: Model.User
+        let createdAt: String?
+        let urls: [String: String]
+
+        enum CodingKeys: String, CodingKey {
+            case id
+            case width
+            case height
+            case user
+            case createdAt = "created_at"
+            case urls
+        }
+    }
+}
+
+

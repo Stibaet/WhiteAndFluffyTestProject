@@ -24,6 +24,7 @@ class RandomPicturesViewController: UIViewController {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search images"
         searchBar.searchBarStyle = .minimal
+        searchBar.delegate = self
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
@@ -36,6 +37,12 @@ class RandomPicturesViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         getPictures()
+    }
+    
+    override func loadView() {
+        super.loadView()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,9 +97,15 @@ private extension RandomPicturesViewController {
                     }
                     print("Error while getting pictures: \(error.localizedDescription)")
             }
-
+            
         })
     }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    
 }
 
 //MARK: - UICollectionViewDataSourse
@@ -128,6 +141,31 @@ extension RandomPicturesViewController: UICollectionViewDelegateFlowLayout {
         let width = (collectionView.bounds.width - 20) / 2
         return CGSize(width: width, height: width)
     }
+}
+
+extension RandomPicturesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.isEmpty {
+            getPictures()
+        } else {
+            
+            guard let query = searchBar.text, !query.isEmpty else { return }
+            NetworkManager.shared.searchPhotos(query: query) { [weak self] result in
+                switch result {
+                    case .success(let searchResults):
+                        self?.dataSourse = searchResults.results.map({ searchResult in
+                            Model(id: searchResult.id, urls: searchResult.urls, user: searchResult.user, createdAt: searchResult.createdAt, location: nil, downloads: nil)
+                        })
+                        self?.picturesCollectionVIew.reloadData()
+                    case .failure(let error):
+                        print("Error searching photos: \(error)")
+                }
+            }
+        }
+    }
     
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }

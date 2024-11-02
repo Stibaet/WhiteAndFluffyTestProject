@@ -56,9 +56,19 @@ class DetailPicturesViewController: UIViewController {
         imageView.image = image
         
         authorNameLabel.text = "Автор: \(model.user.name)"
-        creationDateLabel.text = "Дата создания: \(model.createdAt ?? "данные не найдены")"
         locationLabel.text = "Локация: \(model.location?.name ?? "данные не найдены")"
         quantityOfDownloadsLabel.text = "Загружено раз: \(model.downloads ?? 0)"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        if let creationDate = model.createdAt, let date = dateFormatter.date(from: creationDate) {
+            let displayFormatter = DateFormatter()
+            displayFormatter.dateStyle = .medium
+            creationDateLabel.text = "Дата создания: \(displayFormatter.string(from: date))"
+        } else {
+            creationDateLabel.text = "Дата создания: данные не найдены"
+        }
     }
 }
 
