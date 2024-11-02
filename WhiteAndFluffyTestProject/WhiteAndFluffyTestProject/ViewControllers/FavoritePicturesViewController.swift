@@ -37,22 +37,20 @@ class FavoritePicturesViewController: UIViewController {
     }
     
     //MARK: - properties
-    private let dataManager = DataManager.shared
-    private var data: [Model] = []
+    private let dataSource = DataManager.shared
 }
 
 //MARK: - private methods
 private extension FavoritePicturesViewController {
     func configureUI() {
-        view.backgroundColor = .green
-        tableVIew.backgroundColor = .cyan
+        view.backgroundColor = .white
         view.addSubview(tableVIew)
         
         NSLayoutConstraint.activate([
             tableVIew.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             tableVIew.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             tableVIew.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            tableVIew.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor) 
+            tableVIew.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
@@ -60,13 +58,13 @@ private extension FavoritePicturesViewController {
 //MARK: - UITableViewDataSource
 extension FavoritePicturesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataManager.getFavorites().count
+        dataSource.getFavorite().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoritePicturesTableCell.reuseID, for: indexPath) as? FavoritePicturesTableCell else { return UITableViewCell() }
         
-        let dataSource = dataManager.getFavorites()[indexPath.row]
+        let dataSource = dataSource.getFavorite()[indexPath.row]
         cell.configureWith(model: dataSource)
         return cell
     }
@@ -75,7 +73,7 @@ extension FavoritePicturesViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension FavoritePicturesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dataSourse = dataManager.getFavorites()[indexPath.row]
+        let dataSourse = dataSource.getFavorite()[indexPath.row]
         
         if let cell = tableView.cellForRow(at: indexPath) as? FavoritePicturesTableCell, let image = cell.getImageFromImageView() {
             let vc = DetailPicturesViewController(model: dataSourse)

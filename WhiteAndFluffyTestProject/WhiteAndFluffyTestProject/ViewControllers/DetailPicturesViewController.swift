@@ -76,14 +76,13 @@ class DetailPicturesViewController: UIViewController {
 private extension DetailPicturesViewController {
     func configureUI() {
         view.addSubview(imageView)
-        view.backgroundColor = .cyan
-        imageView.backgroundColor = .darkGray
+        view.backgroundColor = .white
         
         navigationItem.rightBarButtonItem = addPictureToFavoriteButton
         
         let labelsStack = UIStackView(axis: .vertical, distribution: .fillEqually, spacing: 5, arrangedSubviews: [authorNameLabel, creationDateLabel, locationLabel, quantityOfDownloadsLabel])
         view.addSubview(labelsStack)
-        labelsStack.backgroundColor = .green
+        
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -98,16 +97,16 @@ private extension DetailPicturesViewController {
     }
     
     @objc func addPictureToFavorite() {
-        if dataManager.getFavorites().contains(where: { $0.id == model.id }) {
-            dataManager.removeFromFavorites(model)
+        if dataManager.getFavorite().contains(where: { $0.id == model.id }) {
+            dataManager.removeFromFavorite(model)
         } else {
-            dataManager.addToFavorites(model)
+            dataManager.addToFavorite(model)
         }
         updateAddToFavotiteButtonTitle()
     }
     
     func updateAddToFavotiteButtonTitle() {
-        let isFavorite = dataManager.getFavorites().contains(where: { $0.id == model.id })
+        let isFavorite = dataManager.getFavorite().contains(where: { $0.id == model.id })
         addPictureToFavoriteButton.title = isFavorite ? "Remove from favorites" : "Add to favorites"
     }
 }

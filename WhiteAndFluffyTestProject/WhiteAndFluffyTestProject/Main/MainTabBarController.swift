@@ -38,7 +38,6 @@ private extension MainTabBarController {
     }
     
     func setupTabBar() {
-        view.backgroundColor = .white
         tabBar.backgroundColor = .white
         tabBar.tintColor = .red
     }

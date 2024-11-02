@@ -8,23 +8,23 @@
 class DataManager {
     
     static let shared = DataManager()
-    private var favoritesPictures: [Model] = []
+    private var favoritePictures: [Model] = []
     
-    func addToFavorites(_ model: Model) {
-        if !favoritesPictures.contains(where: { $0.id == model.id }) {
-            favoritesPictures.append(model)
+    func addToFavorite(_ model: Model) {
+        if !favoritePictures.contains(where: { $0.id == model.id }) {
+            favoritePictures.append(model)
         }
     }
     
-    func removeFromFavorites(_ model: Model) {
-        favoritesPictures.removeAll(where: { $0.id == model.id })
+    func removeFromFavorite(_ model: Model) {
+        favoritePictures.removeAll(where: { $0.id == model.id })
     }
     
-    func getFavorites() -> [Model] {
-        return favoritesPictures
+    func getFavorite() -> [Model] {
+        return favoritePictures
     }
     
     func isFavorite(_ image: Model) -> Bool {
-        favoritesPictures.contains(where: { $0.id == image.id })
+        favoritePictures.contains(where: { $0.id == image.id })
     }
 }

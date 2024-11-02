@@ -42,6 +42,7 @@ class RandomPicturesViewController: UIViewController {
     override func loadView() {
         super.loadView()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGesture.delegate = self
         view.addGestureRecognizer(tapGesture)
     }
     
@@ -59,8 +60,7 @@ class RandomPicturesViewController: UIViewController {
 //MARK: - private methods
 private extension RandomPicturesViewController {
     func configureUI() {
-        view.backgroundColor = .yellow
-        picturesCollectionVIew.backgroundColor = .cyan
+        view.backgroundColor = .white
         
         view.addSubview(picturesCollectionVIew)
         view.addSubview(searchBar)
@@ -143,6 +143,7 @@ extension RandomPicturesViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: - UISearchBarDelegate
 extension RandomPicturesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -167,5 +168,14 @@ extension RandomPicturesViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+}
+
+//MARK: - UIGestureRecognizerDelegate
+extension RandomPicturesViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        !(String(describing: touch.view).contains("UICollectionViewCell") ||
+          String(describing: touch.view?.superview).contains("UICollectionViewCell"))
     }
 }
